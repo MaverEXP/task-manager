@@ -14,7 +14,6 @@ def create_app():
     jwt.init_app(app)
     
     with app.app_context():
-        from . import routes
         db.create_all()
     
     return app
