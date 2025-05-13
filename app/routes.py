@@ -26,7 +26,9 @@ def login():
 def get_tasks():
     user_id = get_jwt_identity()
     tasks = Task.query.filter_by(user_id=user_id).all()
-    return jsonify([{"title": t.title, "completed": t.completed} for t in tasks])
+    return jsonify([
+    {"title": t.title, "completed": t.completed} 
+    for t in tasks
 
 @app.route('/tasks', methods=['POST'])
 @jwt_required()
